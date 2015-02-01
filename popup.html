@@ -3,13 +3,12 @@
 <head lang="en">
     <meta charset="UTF-8">
     <style>
-        body {
-            max-width: 20%;
-        }
         .container {
             margin: 0;
             padding: 2px 5px;
             text-overflow: ellipsis;
+            max-width: 50em;
+            overflow-x: hidden;
         }
         .container:after {
             content:"";
@@ -24,6 +23,12 @@
             white-space: nowrap;
             cursor: pointer;
             padding: 5px 0;
+            border: 1px solid #ffffff;
+            float: left;
+            clear: both;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
         .li:hover {
             border: 1px solid #4d90fe;
