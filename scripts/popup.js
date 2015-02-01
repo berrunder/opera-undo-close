@@ -59,7 +59,7 @@
         tab.classList.remove('highlighted');
         index = Array.prototype.indexOf.call(container.childNodes, tab);
         newIndex = index + delta;
-        if (delta < 0 && newIndex < 0) {
+        if (newIndex < 0 && delta < 0) {
             newIndex = len + delta - index;
         } else if (newIndex >= len) {
             newIndex = index - len + delta;
@@ -82,7 +82,7 @@
                 break;
             //down
             case 40:
-                moveSelection(+1);
+                moveSelection(1);
                 break;
             case 13:
                 tab = document.querySelector('.highlighted');
