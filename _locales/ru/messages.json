@@ -1,0 +1,11 @@
+{
+    "extensionName": {
+        "message": "Восстановление закрытых вкладок"
+    },
+    "extensionDescription": {
+        "message": ""
+    },
+    "popupHint" : {
+        "message": "Недавно закрытые вкладки"
+    }
+}
