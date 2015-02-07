@@ -20,13 +20,17 @@
         }
     }
 
-    chrome.extension.getBackgroundPage().getClosedTabs(function (tabs) {
-        closedTabs = tabs;
-        render(tabs);
+    chrome.runtime.getBackgroundPage(function(bg) {
+        bg.getClosedTabs(function (tabs) {
+            closedTabs = tabs;
+            render(tabs);
+        });
     });
 
     function restoreTab(id) {
-        chrome.extension.getBackgroundPage().restoreTab(id);
+        chrome.runtime.getBackgroundPage(function(bg) {
+            bg.restoreTab(id);
+        });
     }
 
     function bindClicks() {
