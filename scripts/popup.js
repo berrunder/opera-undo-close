@@ -5,7 +5,7 @@
 
     function getList(tabs) {
         return tabs.map(function (session, index) {
-            return '<div class="li' + (index === 0 ? ' highlighted' : '') + '" data-id="' + session.tab.sessionId + '" title="' + session.tab.url + '"><img src="'
+            return '<div class="li" data-id="' + session.tab.sessionId + '" title="' + session.tab.url + '"><img src="'
                 + (session.tab.favIconUrl || 'media/icon_16.png') +
                 '"/><span>' + session.tab.title + '</span></div>';
         }).join('');
@@ -59,9 +59,12 @@
             index, newIndex,
             len = container.childNodes.length;
 
-        if (!tab) return;
-        tab.classList.remove('highlighted');
-        index = Array.prototype.indexOf.call(container.childNodes, tab);
+        if (tab) {
+            tab.classList.remove('highlighted');
+            index = Array.prototype.indexOf.call(container.childNodes, tab);
+        } else {
+            index = -1;
+        }
         newIndex = index + delta;
         if (newIndex < 0 && delta < 0) {
             newIndex = len + delta - index;
