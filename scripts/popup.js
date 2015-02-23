@@ -5,9 +5,9 @@
 
     function getList(tabs) {
         return tabs.map(function (session, index) {
-            return '<div class="li" data-id="' + session.tab.sessionId + '" title="' + session.tab.url + '"><img src="'
-                + (session.tab.favIconUrl || 'media/icon_16.png') +
-                '"/><span>' + session.tab.title + '</span></div>';
+            return '<a class="li" data-id="' + session.tab.sessionId + '" title="' + session.tab.url +
+                '"><div class="item"><img src="' + (session.tab.favIconUrl || 'media/icon_16.png') +
+                '"/><span>' + session.tab.title + '</span></div></a>';
         }).join('');
     }
 
@@ -35,7 +35,8 @@
 
     function bindClicks() {
         Array.prototype.forEach.call(document.querySelectorAll('.li'), function (el) {
-            el.addEventListener('click', function () {
+            el.addEventListener('click', function (e) {
+                e.preventDefault();
                 restoreTab(this.getAttribute('data-id'));
             }, false);
         });

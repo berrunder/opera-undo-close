@@ -28,10 +28,8 @@
             cursor: pointer;
             padding: 5px 0;
             border: 1px solid #ffffff;
-            float: left;
-            clear: both;
             overflow: hidden;
-            text-overflow: ellipsis;
+            display: block;
             max-width: 100%;
         }
         .li:hover {
@@ -53,6 +51,11 @@
             position: fixed;
             bottom: 0;
             left: 0;
+        }
+        .item {
+            position: relative;
+            text-overflow: ellipsis;
+            display: block;
         }
     </style>
 
