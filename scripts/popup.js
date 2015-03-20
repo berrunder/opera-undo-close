@@ -4,9 +4,15 @@
         closedTabs;
 
     function getList(tabs) {
-        return tabs.map(function (session, index) {
+        return tabs.map(function (session) {
+            var faviconUrl = session.tab.favIconUrl,
+                matches;
+            if (!faviconUrl) {
+                matches = /^http(?:s)?:\/\/[^\/]+/.exec(session.tab.url);
+                faviconUrl = matches && matches.length ? matches[0] + '/favicon.ico' : 'media/icon_16.png';
+            }
             return '<a class="li" data-id="' + session.tab.sessionId + '" title="' + session.tab.url +
-                '"><div class="item"><img src="' + (session.tab.favIconUrl || 'media/icon_16.png') +
+                '"><div class="item"><img src="' + faviconUrl +
                 '"/><span>' + session.tab.title + '</span></div></a>';
         }).join('');
     }
